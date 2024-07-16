@@ -8,7 +8,7 @@ export default function App() {
 	const [shortUrl, setShortUrl] = useState('')
 
 	return (
-		<main className='max-w-[400px] mx-auto'>
+		<main className='max-w-[400px] mx-auto px-2'>
 			<Header />
 			<UrlForm setShowShortUrl={setShowShortUrl} setShortUrl={setShortUrl} />
 			{showShortUrl && <ShortUrl shortUrl={shortUrl} />}

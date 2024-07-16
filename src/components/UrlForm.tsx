@@ -29,7 +29,7 @@ export default function UrlForm({
 		toast.success('URL shortened.')
 	}
 	return (
-		<form onSubmit={handleSubmit} className='flex flex-col px-2 items-start'>
+		<form onSubmit={handleSubmit} className='flex flex-col items-start'>
 			<label htmlFor='text'>Your URL:</label>
 			<input
 				className='outline-none mb-2 border-2 border-black rounded p-1 w-full'
