@@ -21,8 +21,17 @@ export default function UrlForm({
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-		// const url = 'https://www.example.com'
 		if (!validateUrl(text)) return toast.error('URL is invalid')
+
+		fetch(`${import.meta.env.VITE_SERVER_URL}/short-url`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ text }),
+		})
+			.then(res => res.json())
+			.then(data => console.log(data))
 
 		setShortUrl(text)
 		setShowShortUrl(true)
