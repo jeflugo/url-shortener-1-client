@@ -1,14 +1,17 @@
 import { useEffect } from 'react'
-// import toast from 'react-hot-toast'
+import toast from 'react-hot-toast'
 
 export default function Redirect() {
 	useEffect(() => {
 		const id = window.location.href.split('/').pop()
-		console.log(id)
-		// fetch(`${import.meta.env.VITE_SERVER_URL}/${id}`)
-		// 	.then(res => res.json())
-		// 	.then(data => console.log(data))
-		// 	.catch(() => toast.error('Something went wrong'))
+		fetch(`${import.meta.env.VITE_SERVER_URL}/urls/${id}`)
+			.then(res => res.json())
+			.then(data => (window.location.href = data.url))
+			.catch(() => toast.error('Something went wrong'))
 	}, [])
-	return <div>redirect</div>
+	return (
+		<div className='flex justify-center items-center h-screen'>
+			<h2 className='text-xl font-medium'>Redirecting...</h2>
+		</div>
+	)
 }
