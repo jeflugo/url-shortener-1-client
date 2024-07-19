@@ -2,10 +2,8 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 
 function validateUrl(url: string) {
-	const urlPattern =
-		/^(https?:\/\/)?([\da-z\\.-]+)\.([a-z\\.]{2,6})([\\/\w \\.-]*)*\/?$/
-
-	return urlPattern.test(url)
+	const pattern = /^(http|https):\/\/\w+/
+	return pattern.test(url)
 }
 
 type UrlFormProps = {
