@@ -23,19 +23,23 @@ export default function UrlForm({
 		e.preventDefault()
 		if (!validateUrl(text)) return toast.error('URL is invalid')
 
-		fetch(`${import.meta.env.VITE_SERVER_URL}/short-url`, {
+		fetch(`${import.meta.env.VITE_SERVER_URL}/urls`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ text }),
+			body: JSON.stringify({ url: text }),
 		})
 			.then(res => res.json())
-			.then(data => console.log(data))
-
-		setShortUrl(text)
-		setShowShortUrl(true)
-		toast.success('URL shortened.')
+			.then(data => {
+				setShortUrl(data.shortUrl)
+				setShowShortUrl(true)
+				toast.success('URL shortened.')
+			})
+			.catch(() => {
+				setShowShortUrl(false)
+				toast.error('Something went wrong.')
+			})
 	}
 	return (
 		<form onSubmit={handleSubmit} className='flex flex-col items-start'>
