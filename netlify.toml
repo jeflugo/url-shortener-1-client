@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/ulrs/*"
-  to = "/pages/redirect"
+  to = "/pages/Redirect"
   status = 200
