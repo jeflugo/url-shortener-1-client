@@ -1,4 +1,1 @@
-[[redirects]]
-  from = "/*"
-  to = "/pages/Redirect"
-  status = 200
+/* /pages/Redirect 200
