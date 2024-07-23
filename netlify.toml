@@ -1,2 +1,5 @@
 [[redirects]]
-/* /pages/Redirect 200
+
+  from = "/*"
+  to = "/404"
+  status = 404
