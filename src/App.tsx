@@ -6,7 +6,7 @@ export default function App() {
 	return (
 		<Routes>
 			<Route path='/' element={<Home />} />
-			<Route path='/404' element={<Redirect />} />
+			<Route path='*' element={<Redirect />} />
 		</Routes>
 	)
 }
